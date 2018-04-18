@@ -22,7 +22,7 @@ public:
         bytes.push_back(*istr);
         istr++;
 
-        stream << "LJMP    " << std::setfill('0') << std::setw(4) << std::hex << (uint16_t) addr;
+        stream << "LJMP    " << std::setfill('0') << std::setw(4) << std::hex << (uint32_t) addr;
         toString = stream.str();
     }
 };

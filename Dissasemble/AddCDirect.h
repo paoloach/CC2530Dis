@@ -20,7 +20,7 @@ public:
         bytes.push_back(*istr);
         istr++;
         std::stringstream stream;
-        stream << "ADDC     A," << DirectName::toString(direct);
+        stream << "ADDC    A," << DirectName::toString(direct);
         toString = stream.str();
     }
 

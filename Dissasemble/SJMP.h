@@ -19,11 +19,11 @@ public:
         addr = 2 + pos + *(std::vector<int8_t>::iterator &) (istr);
         bytes.push_back(*istr);
         istr++;
-        stream << "SJMP    " << std::setfill('0') << std::setw(4) << std::hex << (uint16_t) addr;
+        stream << "SJMP    " << std::setfill('0') << std::setw(4) << std::hex << (uint32_t) addr;
         toString = stream.str();
     }
 
-    uint16_t addr;
+    uint32_t addr;
 };
 
 

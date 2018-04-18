@@ -14,9 +14,6 @@ Code * FlashMap::findFunction(const std::string functionName) {
 }
 
 Code *FlashMap::findFunction(uint16_t addr) {
-    if (addr == 0x49D5){
-        std::cout << "ciao" << std::endl;
-    }
     for(auto & code: functions){
         if (code.start >= addr && addr <= code.end)
             return &code;

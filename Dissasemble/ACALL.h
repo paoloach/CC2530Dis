@@ -25,7 +25,7 @@ public:
         if (code != nullptr)
             stream << "LCALL   " << code->getName();
         else
-            stream << "LCALL   " << std::setfill('0') << std::setw(4) << std::hex << (uint16_t) addr;
+            stream << "LCALL   " << std::setfill('0') << std::setw(4) << std::hex << (uint32_t) addr;
         toString = stream.str();
     }
 };

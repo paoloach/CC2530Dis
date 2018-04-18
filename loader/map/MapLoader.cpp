@@ -17,12 +17,17 @@ FlashMap MapLoader::load(std::string file) {
     while (std::getline(mapFile, line)) {
         lineCounter++;
         boost::trim(line);
+        if (line.compare(0, 7, "<CODE_C") == 0) {
+            Code code(mapFile);
+            if (result.findFunction(code.getName()) != nullptr) {
+                code.segmentPart = custom_segment_part;
+                custom_segment_part++;
+            }
+            result.functions.push_back(code);
+        }
         if (line.compare(0, 12, "<BANKED_CODE") == 0) {
             Code code(mapFile);
-            if (code.segmentPart == 388){
-                std::cout << "ciao";
-            }
-            while (result.findFunction(code.getName()) != nullptr) {
+            if (result.findFunction(code.getName()) != nullptr) {
                 code.segmentPart = custom_segment_part;
                 custom_segment_part++;
             }

@@ -18,7 +18,7 @@ public:
         bytes.push_back(*istr);
         std::stringstream stream;
         istr++;
-        addr = (uint16_t )*istr << 8;
+        addr = (uint32_t )*istr << 8;
         bytes.push_back(*istr);
         istr++;
         addr += *istr;
@@ -28,7 +28,7 @@ public:
         if (code != nullptr)
             stream << "LCALL   " << code->getName();
         else
-            stream << "LCALL   " << std::setfill('0') << std::setw(4) << std::hex << (uint16_t) addr;
+            stream << "LCALL   " << std::setfill('0') << std::setw(4) << std::hex << (uint32_t) addr;
         toString = stream.str();
     }
 };

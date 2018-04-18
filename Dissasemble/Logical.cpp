@@ -3,6 +3,7 @@
 //
 #include <iomanip>
 #include "Logical.h"
+#include "DirectName.h"
 
 void Logical::addReg(std::ostream &stream, std::vector<uint8_t>::iterator &istr) {
     uint8_t  code = *istr & 0x0F;
@@ -29,7 +30,7 @@ void Logical::addReg(std::ostream &stream, std::vector<uint8_t>::iterator &istr)
         case 5:
             istr++;
             direct = *istr;
-            stream << "A," << std::setfill('0') << std::setw(2) << std::hex << (uint16_t) direct;
+            stream << "A," << std::setfill('0') << std::setw(2) << std::hex << DirectName::toString( direct);
             break;
         case 6:
         case 7:

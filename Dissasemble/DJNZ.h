@@ -33,10 +33,10 @@ public:
         addr = 2 + pos +*(std::vector<int8_t>::iterator &) istr;
         bytes.push_back(*istr);
         istr++;
-        stream << "," << std::setfill('0') << std::setw(4) << std::hex << (uint16_t) addr;
+        stream << "," << std::setfill('0') << std::setw(4) << std::hex << (uint32_t) addr;
         toString = stream.str();
     }
-    uint8_t  addr;
+    uint32_t  addr;
     uint8_t  reg;
     uint8_t  data;
 };

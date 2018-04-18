@@ -58,6 +58,7 @@
 #include "Logic_Bit.h"
 #include "MOV_C_bit.h"
 #include "MOV_bit_C.h"
+#include "AddCDirect.h"
 
 std::unique_ptr<Function> Dissasemble::dissasemble(std::vector<uint8_t> &memory, FlashMap &flashMap, Code *code,
                                                    FunctionsDone &functionDone) {
@@ -139,7 +140,7 @@ std::unique_ptr<Function> Dissasemble::dissasemble(std::vector<uint8_t> &memory,
                 result->instrs.push_back(std::make_unique<AddACData>(iter, pos));
                 break;
             case 0x35:
-                result->instrs.push_back(std::make_unique<AddACIndirect>(iter, pos));
+                result->instrs.push_back(std::make_unique<AddCDirect>(iter, pos));
                 break;
             case 0x36:
             case 0x37:
